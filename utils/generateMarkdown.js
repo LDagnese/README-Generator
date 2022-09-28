@@ -1,4 +1,4 @@
-//function that returns a license badge based on which license is passed in
+// function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license !== "None") {
@@ -7,18 +7,66 @@ function renderLicenseBadge(license) {
   return "";
 }
 
-// TODO: Create a function that returns the license link
+// function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license !== 'None') {
+    return `\n* [License](#license)\n`
+  }
+  return ''
+}
 
-// TODO: Create a function that returns the license section of README
+// function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license == 'None') {
+    return ''
+  }
+  return `## License  
+  This project uses the ${license} license.`  
+}
 
-// TODO: Create a function to generate markdown for README
+// function to generate markdown for README
 function generateMarkdown(response) {
   return `# ${response.title}
   ${renderLicenseBadge(response.license)}
+
+  ## Description  
+
+  ${response.description}
+
+  ## Table of Contents  
+
+  *[Installation](#installation)
+  *[Usage](#usage)
+  ${renderLicenseLink(response.license)}
+  *[Contributing](#contributing)
+  *[Tests](#tests)
+  *[Questions](#questions)
+
+  ## Installation
+  To Install necessary dependencies/packages, run this command - 
+  \'\'\'
+  ${response.installation}
+  \'\'\'
+
+  ## Usage
+  ${response.usage}
+  ${renderLicenseSection(response.license)}
+
+  ## Contributing
+
+  ## Tests
+  To run tests execute the following code - 
+  \'\'\'
+  ${response.test}
+  \'\'\'
+
+  ## Questions
+
+  Any further questions, feel free to reach me via email @ ${response.email}.  
+  More of my work can be seen here [Github Link](https://github.com/${response.github}/)
+
 `;
 }
 
