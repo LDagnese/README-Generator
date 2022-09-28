@@ -63,7 +63,7 @@ function writeToFile(fileName, data) {
 // function to initialize app
 function initialize() {
   inquirer.prompt(questions).then((responses) => {
-    console.log(responses);
+    console.log('Building README');
     writeToFile("README.md", generateMarkdown({ ...responses }));
   });
 }
