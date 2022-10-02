@@ -61,7 +61,7 @@ ${renderLicenseSection(response.license)}
 
 ## Contributing
 
-${response.contributing}
+${response.contribution}
 
 ## Tests
 
